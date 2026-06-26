@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Галлямова Полина — Графический дизайнер</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  background:#f4f4f6;
+  font-family:'Inter',-apple-system,sans-serif;
+  color:#1a1a1a;
+  display:flex;
+  justify-content:center;
+  padding:48px 24px;
+  line-height:1.5;
+}
+
+.resume{
+  max-width:960px;
+  width:100%;
+  background:#fff;
+  display:grid;
+  grid-template-columns:300px 1fr;
+  box-shadow:0 1px 3px rgba(0,0,0,.08),0 1px 2px rgba(0,0,0,.04);
+}
+
+/* sidebar */
+.sidebar{
+  background:#5c5c5c;
+  color:rgba(255,255,255,.85);
+  padding:40px 28px;
+  display:flex;
+  flex-direction:column;
+  gap:28px;
+}
+
+.sidebar .name{
+  font-size:22px;
+  font-weight:700;
+  letter-spacing:-.3px;
+  color:#fff;
+  margin-bottom:2px;
+}
+
+.sidebar .role{
+  font-size:13px;
+  font-weight:400;
+  color:rgba(255,255,255,.55);
+  letter-spacing:.3px;
+  text-transform:uppercase;
+}
+
+.sidebar .contact{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  font-size:13px;
+  color:rgba(255,255,255,.7);
+}
+
+.sidebar .contact a{
+  color:rgba(255,255,255,.7);
+  text-decoration:none;
+  transition:color .2s;
+}
+
+.sidebar .contact a:hover{
+  color:#fff;
+}
+
+.sidebar .section-title{
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.45);
+  margin-bottom:10px;
+}
+
+.skills-list{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+
+.skills-list span{
+  background:rgba(255,255,255,.08);
+  color:rgba(255,255,255,.85);
+  padding:3px 10px;
+  border-radius:3px;
+  font-size:11px;
+  letter-spacing:.2px;
+}
+
+.lang-item{
+  display:flex;
+  justify-content:space-between;
+  font-size:13px;
+  padding:4px 0;
+}
+
+.lang-item .level{
+  color:rgba(255,255,255,.45);
+  font-size:12px;
+}
+
+.edu-item{
+  font-size:13px;
+  line-height:1.6;
+}
+
+.edu-item .place{
+  font-weight:500;
+  color:#fff;
+}
+
+.edu-item .sub{
+  color:rgba(255,255,255,.55);
+  font-size:12px;
+}
+
+.edu-item .years{
+  color:rgba(255,255,255,.35);
+  font-size:12px;
+}
+
+/* main */
+.main{
+  padding:40px 36px;
+}
+
+.main .section{
+  margin-bottom:32px;
+}
+
+.main .section-header{
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:1.2px;
+  text-transform:uppercase;
+  color:#999;
+  margin-bottom:16px;
+  padding-bottom:6px;
+  border-bottom:1px solid #eee;
+}
+
+.project{
+  margin-bottom:24px;
+}
+
+.project:last-child{
+  margin-bottom:0;
+}
+
+.project .title-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  margin-bottom:4px;
+}
+
+.project .proj-name{
+  font-size:14px;
+  font-weight:600;
+  color:#1a1a1a;
+}
+
+.project .proj-link{
+  font-size:11px;
+  color:#999;
+  text-decoration:none;
+  transition:color .2s;
+}
+
+.project .proj-link:hover{
+  color:#1a1a1a;
+}
+
+.project .sub-info{
+  font-size:12px;
+  color:#888;
+  margin-bottom:6px;
+}
+
+.project .desc-list{
+  padding-left:16px;
+  font-size:13px;
+  color:#444;
+}
+
+.project .desc-list li{
+  margin-bottom:3px;
+}
+
+.project .desc-list li:last-child{
+  margin-bottom:0;
+}
+
+.achievement-item{
+  display:flex;
+  gap:8px;
+  font-size:13px;
+  color:#444;
+  margin-bottom:6px;
+}
+
+.achievement-item .bullet{
+  color:#1a1a1a;
+  font-weight:700;
+}
+
+.print-btn{
+  position:fixed;
+  bottom:32px;
+  right:32px;
+  z-index:100;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  background:#1a1a1a;
+  color:#fff;
+  border:none;
+  padding:12px 22px;
+  border-radius:8px;
+  font:500 13px/1 'Inter',sans-serif;
+  cursor:pointer;
+  box-shadow:0 2px 12px rgba(0,0,0,.15);
+  transition:opacity .2s,transform .2s;
+}
+
+.print-btn:hover{
+  opacity:.9;
+  transform:translateY(-1px);
+}
+
+.print-btn svg{
+  width:16px;
+  height:16px;
+  fill:currentColor;
+}
+
+@media(max-width:720px){
+  body{padding:0}
+  .resume{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<button class="print-btn" onclick="downloadPDF()">
+  <svg viewBox="0 0 24 24"><path d="M19 8h-1V3H6v5H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zM8 5h8v3H8V5zm8 14H8v-4h8v4zm2-4v-2H6v2H4v-4c0-.55.45-1 1-1h14c.55 0 1 .45 1 1v4h-2z"/></svg>
+  Скачать PDF
+</button>
+<div class="resume">
+
+<div class="sidebar">
+  <div>
+    <div class="name">Галлямова Полина</div>
+    <div class="role">Графический дизайнер</div>
+  </div>
+
+  <div>
+    <div class="section-title">Контакты</div>
+    <div class="contact">
+      <a href="tel:+79162981833">+7 916 298 18 33</a>
+      <a href="mailto:polinagalliamova@yandex.ru">polinagalliamova@yandex.ru</a>
+      <a href="https://dprofile.ru/poliash" target="_blank">dprofile.ru/poliash</a>
+      <span>Москва</span>
+    </div>
+  </div>
+
+  <div>
+    <div class="section-title">Образование</div>
+    <div class="edu-item">
+      <div class="place">Высшая Школа Дизайна НИУ ВШЭ</div>
+      <div class="sub">Бакалавриат</div>
+      <div class="years">2023 – 2027</div>
+    </div>
+  </div>
+
+  <div>
+    <div class="section-title">Языки</div>
+    <div class="lang-item">
+      <span>Английский</span>
+      <span class="level">B1</span>
+    </div>
+  </div>
+
+  <div>
+    <div class="section-title">Навыки</div>
+    <div class="skills-list">
+      <span>Adobe Illustrator</span>
+      <span>Adobe Photoshop</span>
+      <span>Figma</span>
+      <span>Adobe Premiere Pro</span>
+      <span>Adobe After Effects</span>
+      <span>Adobe InDesign</span>
+      <span>Blender</span>
+      <span>Readymag</span>
+      <span>Tilda</span>
+      <span>Айдентика</span>
+      <span>Брендинг</span>
+      <span>2D&amp;3D Анимация</span>
+      <span>Разработка мерча</span>
+      <span>Предпечатная подготовка</span>
+      <span>Комплексные исследования</span>
+      <span>Презентации</span>
+      <span>Дизайн соцсетей</span>
+      <span>AI-инструменты</span>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+
+  <div class="section">
+    <div class="section-header">Опыт работы и проекты</div>
+
+    <div class="project">
+      <div class="title-row">
+        <div class="proj-name">1 место в конкурсе нейросетевых рекламных кампаний для ювелирного бренда POSIÉ</div>
+        <a class="proj-link" href="https://hsedesign.ru/project/77a7ee390c684d1d85b10c778487b7d8" target="_blank">hsedesign.ru ↗</a>
+      </div>
+      <ul class="desc-list">
+        <li>Сформировала креативную концепцию, раскрывающую контраст и диалог между исторической роскошью и современным дизайном</li>
+        <li>Разработала серию рекламных визуалов (5 ключевых макетов), созданных с использованием нейросетевых моделей</li>
+        <li>Адаптировала визуальную систему под премиальный бренд-стиль POSIÉ и требования конкурсного брифа</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <div class="title-row">
+        <div class="proj-name">Разработка фирменного стиля в рамках экспедиции для привлечения туристического потока в Кольчугино</div>
+        <a class="proj-link" href="https://hsedesign.ru/project/ajdentika-dlya-kolchugino-37a2e5fc468e4f9480aa44ca46fd0539" target="_blank">hsedesign.ru ↗</a>
+      </div>
+      <ul class="desc-list">
+        <li>Проанализировала культурный код города</li>
+        <li>Разработала малый фирменный стиль и путеводитель по городу</li>
+        <li>Концепция утверждена администрацией города, материалы запущены в работу</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <div class="title-row">
+        <div class="proj-name">Продюсирование и подготовка выставочного проекта Techno Influence 2023</div>
+      </div>
+      <ul class="desc-list">
+        <li>Подготовила 15 макетов к печати в соответствии с техническими требованиями выставочного формата (цветовые профили, вылеты, разрешение, масштабирование)</li>
+        <li>Вела коммуникацию с типографией на всех этапах производства: передача файлов, согласование тестовых проб, контроль корректировок и финального качества тиража</li>
+        <li>Выставка успешно реализована в рамках учебного проекта НИУ ВШЭ, все 15 плакатов были напечатаны и представлены в экспозиции без технических ошибок и задержек</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <div class="title-row">
+        <div class="proj-name">Разработка визуальной системы дизайн-фестиваля</div>
+        <a class="proj-link" href="https://hsedesign.ru/project/5aefb1c9261c49bfa9b6bdbff6868925" target="_blank">hsedesign.ru ↗</a>
+      </div>
+      <ul class="desc-list">
+        <li>Сформировала визуальную идентичность дизайн-фестиваля: разработала логотип, цветовую схему и типографику, правила композиции</li>
+        <li>Структурировала правила использования айдентики в формате гайдлайна (логика применения основных визуальных элементов).</li>
+        <li>Адаптировала визуальную систему под разные форматы носителей (печатные и digital-материалы), сохраняя целостность и узнаваемость стиля</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <div class="title-row">
+        <div class="proj-name">Визуальная лаборатория в Instagram</div>
+        <a class="proj-link" href="https://www.instagram.com/poliash_?igsh=OW1jbGo3cGNzYzA%3D&utm_source=qr" target="_blank">instagram.com ↗</a>
+      </div>
+      <ul class="desc-list">
+        <li>Веду визуальный блог, посвящённый исследованию движения, типографики, генеративной графики и AI.</li>
+        <li>Создаю короткие видео и анимации, комбинируя реальные съёмки, motion-дизайн и алгоритмически сгенерированные визуальные элементы.</li>
+        <li>Использую блог как площадку для тестирования новых визуальных приёмов, концепций и инструментов.</li>
+        <li>Формирую собственный визуальный язык и практикую публичную коммуникацию через контент.</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="section">
+    <div class="section-header">Достижения</div>
+    <div class="achievement-item"><span class="bullet">•</span> 2 Степень на всероссийской олимпиаде по дизайну</div>
+    <div class="achievement-item"><span class="bullet">•</span> Вошла в список призёров на олимпиаде «Высшая проба»</div>
+    <div class="achievement-item"><span class="bullet">•</span> Выступление на конференции по ИИ в дизайне — подготовила доклад и представляла команду на презентации результатов работы группы</div>
+  </div>
+
+</div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script>
+function downloadPDF(){
+  const btn=document.querySelector('.print-btn');
+  const orig=btn.innerHTML;
+  btn.disabled=true;
+  btn.innerHTML='<svg viewBox="0 0 24 24" style="animation:spin 1s linear infinite"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/><path d="M12 6c3.31 0 6 2.69 6 6h-2c0-2.21-1.79-4-4-4V6z" fill="currentColor"/></svg> Загрузка...';
+  html2pdf().set({
+    margin:0,
+    filename:'resume.pdf',
+    image:{type:'jpeg',quality:1},
+    html2canvas:{scale:2,useCORS:true,letterRendering:true,logging:false},
+    jsPDF:{unit:'mm',format:'a4',orientation:'portrait'}
+  }).from(document.querySelector('.resume')).save().then(()=>{
+    btn.disabled=false;
+    btn.innerHTML=orig;
+  }).catch(()=>{
+    btn.disabled=false;
+    btn.innerHTML=orig;
+  });
+}
+</script>
+<style>
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+</style>
+</body>
+</html>
